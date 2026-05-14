@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Predictor Pro | AI Analytics</title>
+    <meta name="description" content="Advanced AI Match Win Prediction for IPL matches.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Particles -->
+    <div id="particles-js" class="particles-container"></div>
+
+    <div class="app-container">
+        <header class="header">
+            <div class="live-badge">
+                <span class="pulse"></span>
+                LIVE ANALYTICS
+            </div>
+            <h1>IPL Predictor <span>Pro</span></h1>
+            <p class="subtitle">Advanced AI Match Win Prediction</p>
+        </header>
+
+        <main class="glass-card main-container">
+            <form id="prediction-form" class="prediction-grid">
+                <!-- Teams Selection -->
+                <div class="input-field">
+                    <label><i data-lucide="shield"></i> Batting Team</label>
+                    <div class="select-wrapper">
+                        <select id="batting_team" required>
+                            <option value="" disabled selected>Select Team</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-field">
+                    <label><i data-lucide="shield-off"></i> Bowling Team</label>
+                    <div class="select-wrapper">
+                        <select id="bowling_team" required>
+                            <option value="" disabled selected>Select Team</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Venue & Target -->
+                <div class="input-field">
+                    <label><i data-lucide="map-pin"></i> Venue City</label>
+                    <div class="select-wrapper">
+                        <select id="city" required>
+                            <option value="" disabled selected>Select City</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-field">
+                    <label><i data-lucide="target"></i> Target Score</label>
+                    <input type="number" id="target" placeholder="Enter target score" min="0" required>
+                </div>
+
+                <!-- Match State -->
+                <div class="input-field">
+                    <label><i data-lucide="activity"></i> Current Score</label>
+                    <input type="number" id="score" placeholder="Enter current score" min="0" required>
+                </div>
+
+                <div class="input-field">
+                    <label><i data-lucide="user-minus"></i> Wickets Out</label>
+                    <input type="number" id="wickets" placeholder="0-9" min="0" max="9" required>
+                </div>
+
+                <div class="input-field full-width-mobile">
+                    <label><i data-lucide="clock"></i> Overs Completed</label>
+                    <input type="number" id="overs" step="0.1" placeholder="e.g. 14.2" min="0" max="20" required>
+                </div>
+
+                <div class="button-wrapper">
+                    <button type="submit" id="predict-btn" class="neon-button">
+                        <span>Analyze Probability</span>
+                        <i data-lucide="zap"></i>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Results Section -->
+            <section id="results" class="results-container">
+                <div class="result-header">
+                    <h3><i data-lucide="bar-chart-3"></i> AI Analysis Report</h3>
+                    <div class="confidence-tag">AI Confidence: <span id="confidence-level">High</span></div>
+                </div>
+
+                <div class="prediction-stats">
+                    <div class="team-result-card glass-card">
+                        <div class="team-icon-wrapper" id="batting-logo">
+                            <i data-lucide="award"></i>
+                        </div>
+                        <h4 id="res-batting-team">Team A</h4>
+                        <div class="circular-progress-container">
+                            <svg class="circular-progress" viewBox="0 0 100 100">
+                                <circle class="bg" cx="50" cy="50" r="45"></circle>
+                                <circle class="fg" id="circle-batting" cx="50" cy="50" r="45"></circle>
+                            </svg>
+                            <div class="percentage-label" id="res-batting-perc">0%</div>
+                        </div>
+                        <p>Win Probability</p>
+                    </div>
+
+                    <div class="team-result-card glass-card">
+                        <div class="team-icon-wrapper" id="bowling-logo">
+                            <i data-lucide="swords"></i>
+                        </div>
+                        <h4 id="res-bowling-team">Team B</h4>
+                        <div class="circular-progress-container">
+                            <svg class="circular-progress" viewBox="0 0 100 100">
+                                <circle class="bg" cx="50" cy="50" r="45"></circle>
+                                <circle class="fg" id="circle-bowling" cx="50" cy="50" r="45"></circle>
+                            </svg>
+                            <div class="percentage-label" id="res-bowling-perc">0%</div>
+                        </div>
+                        <p>Win Probability</p>
+                    </div>
+                </div>
+
+                <div class="extra-metrics">
+                    <div class="metric-item glass-card">
+                        <span class="label">Match Momentum</span>
+                        <div class="momentum-bar">
+                            <div class="momentum-fill" id="momentum-indicator"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="app-footer">
+            <p>© 2026 IPL Predictor Pro • Powered by Advanced Neural Networks</p>
+        </footer>
+    </div>
+
+    <!-- Particles.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+
